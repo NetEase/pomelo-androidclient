@@ -29,7 +29,7 @@ client.request(route, msg, new DataCallBack(){
 });
 
 // notify the server without response
-client.notify(route, msg);
+client.inform(route, msg);
 
 // receive broadcast message
 client.on(route, new DataListener(){
