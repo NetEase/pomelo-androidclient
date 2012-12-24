@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="pomelo-androidclient">
+
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+
+    <path id="pomelo-androidclient.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="libs/socketio.jar"/>
+    </path>
+
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="pomelo-androidclient.classpath"/>
+        </javac>
+    </target>
+  
+    <target name="jar" depends="build-project">
+	    <mkdir dir="jar"/>
+	        <jar destfile="jar/pomelo-android-client.jar" basedir="bin">
+		    <zipgroupfileset dir="libs/" includes="*.jar"/>
+	            <manifest>
+	            </manifest>
+	        </jar>
+    </target>
+</project>
