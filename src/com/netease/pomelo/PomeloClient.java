@@ -20,7 +20,6 @@ public class PomeloClient {
 	private final static String URLHEADER = "http://";
 	private final static String JSONARRAY_FLAG = "[";
 	private int reqId;
-	private PomeloClient client;
 	private SocketIO socket;
 	private Map<Integer, DataCallBack> cbs;
 	private Map<String, List<DataListener>> listeners;
@@ -52,11 +51,10 @@ public class PomeloClient {
 	}
 
 	/**
-	 * Connect to the server side and return a pomelo client.
+	 * Initialize pomelo client.
 	 * 
-	 * @return client
 	 */
-	public PomeloClient init() {
+	public void init() {
 		socket.connect(new IOCallback() {
 			public void onConnect() {
 				logger.info("pomeloclient is connected.");
@@ -89,7 +87,6 @@ public class PomeloClient {
 			}
 
 		});
-		return client;
 	}
 
 	/**
