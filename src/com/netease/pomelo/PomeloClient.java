@@ -189,9 +189,8 @@ public class PomeloClient {
 				cb.responseData(jsonObject.getJSONObject("body"));
 			}
 			// broadcast message
-			else {
+			else
 				emit(jsonObject.getString("route"), jsonObject);
-			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -239,7 +238,8 @@ public class PomeloClient {
 	private void emit(String route, JSONObject message) {
 		List<DataListener> list = listeners.get(route);
 		if (list == null) {
-			throw new RuntimeException("there is no listeners.");
+			logger.warning("there is no listeners.");
+			return;
 		}
 		for (DataListener listener : list) {
 			DataEvent event = new DataEvent(this, message);
