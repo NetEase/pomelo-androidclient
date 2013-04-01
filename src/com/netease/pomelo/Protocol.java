@@ -27,7 +27,7 @@ public class Protocol {
 	private static String bt2Str(byte[] arr, int start, int end) {
 		StringBuffer buff = new StringBuffer();
 		for (int i = start; i < arr.length && i < end; i++) {
-			buff.append(String.valueOf(Character.toChars((arr[i]+0xFF) % 0xFF)));
+			buff.append(String.valueOf(Character.toChars((arr[i]+256) % 256)));
 		}
 		return buff.toString();
 	}
