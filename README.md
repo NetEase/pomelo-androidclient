@@ -1,6 +1,6 @@
 pomelo-androidclient
 ====================
-* This is a pomelo client for java and android.
+* This is a pomelo socket.io client for java and android.
 
 * The project is based on socket.io-java-client(https://github.com/Gottox/socket.io-java-client).
 
