@@ -74,11 +74,15 @@ public class PomeloClient {
 			}
 
 			public void onError(SocketIOException socketIOException) {
+				logger.info("connection is terminated.");
+				emit("disconnect", null);
+				socket = null;
 				socketIOException.printStackTrace();
 			}
 
 			public void onDisconnect() {
 				logger.info("connection is terminated.");
+				emit("disconnect", null);
 				socket = null;
 			}
 
