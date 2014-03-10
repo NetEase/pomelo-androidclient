@@ -191,6 +191,7 @@ public class PomeloClient {
 				id = jsonObject.getInt("id");
 				DataCallBack cb = cbs.get(id);
 				cb.responseData(jsonObject.getJSONObject("body"));
+				cbs.remove(id);
 			}
 			// broadcast message
 			else
